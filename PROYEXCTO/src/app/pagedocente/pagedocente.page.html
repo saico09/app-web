@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pagedocente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header>
+    <ion-navbar>
+    <ion-title>QR CODE</ion-title>
+    </ion-navbar>
+    </ion-header>
+    <ion-content padding>
+    <ion-input type="text" placeholder="your qr text" [(ngModel)]="qrdata"></ion-input>
+    <button ion-button full color="secondary" (click)="create()">Generate</button>
+    <button ion-button full color="secondary" (click)="clear()">Clear</button>
+    
+     <ion-card *ngIf="createCode">
+      <ngx-qrcode [qrc-value]="createCode"></ngx-qrcode>
+       <ion-card-content>
+       Your QR Code : {{createCode}}
+       </ion-card-content>
+      </ion-card>
+      <ion-button id="play" expand="block"(click)="ingresa3()">Volver</ion-button>
+
+    </ion-content>
+</ion-content>
