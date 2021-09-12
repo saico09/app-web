@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-alumno.page.scss'],
 })
 export class HomeAlumnoPage implements OnInit {
-
+  img:String;
   constructor() { }
 
   ngOnInit() {
+    this.img ='./assets/img/1.png';
   }
 
 }
