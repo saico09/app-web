@@ -19,4 +19,11 @@ export class InicioPage implements OnInit {
     this.router.navigate(['/home']);
 
   }
+  ingresa(){
+
+    //Utilizar API enrutador para llamar a la siguiente página
+
+    this.router.navigate(['/home-alumno']);
+
+  }
 }
