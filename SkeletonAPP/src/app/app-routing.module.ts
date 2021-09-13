@@ -27,10 +27,8 @@ const routes: Routes = [
   {
     path: 'home-alumno',
     loadChildren: () => import('./home-alumno/home-alumno.module').then( m => m.HomeAlumnoPageModule)
-  },  {
-    path: 'poto',
-    loadChildren: () => import('./poto/poto.module').then( m => m.PotoPageModule)
   },
+ 
   {
     path: 'reestablecer',
     loadChildren: () => import('./reestablecer/reestablecer.module').then( m => m.ReestablecerPageModule)
