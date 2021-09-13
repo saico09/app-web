@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'poto',
     loadChildren: () => import('./poto/poto.module').then( m => m.PotoPageModule)
   },
+  {
+    path: 'reestablecer',
+    loadChildren: () => import('./reestablecer/reestablecer.module').then( m => m.ReestablecerPageModule)
+  },
 
 ];
 
