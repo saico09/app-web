@@ -29,6 +29,16 @@ export class HomePage implements OnInit {
     this.router.navigate(['/pagedocente'],navigationExtra);
 
   }
+  ingresa4(){
+
+    let navigationExtra :NavigationExtras={
+      state:{dato: this.dato}
+    };
+    //Utilizar API enrutador para llamar a la siguiente página
+
+    this.router.navigate(['/reestablecer'],navigationExtra);
+
+  }
   async presentToast(msg:string) {
     const toast = await this.toastController.create({
       message: msg,
