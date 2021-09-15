@@ -15,7 +15,8 @@ export class HomePage implements OnInit {
   img:String;
 
   usuario = new FormGroup({
-    nombre: new FormControl('', [Validators.required, Validators.minLength(4)])
+    nombre: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    contrasena: new FormControl('', [Validators.required, Validators.minLength(4)])
   });
 
   nombre = new FormControl('');
