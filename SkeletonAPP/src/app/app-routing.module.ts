@@ -32,7 +32,11 @@ const routes: Routes = [
   {
     path: 'reestablecer',
     loadChildren: () => import('./reestablecer/reestablecer.module').then( m => m.ReestablecerPageModule)
+  },  {
+    path: 'reestablecer-docente',
+    loadChildren: () => import('./reestablecer-docente/reestablecer-docente.module').then( m => m.ReestablecerDocentePageModule)
   },
+
 
 ];
 

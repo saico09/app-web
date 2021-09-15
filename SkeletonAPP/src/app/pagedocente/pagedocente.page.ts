@@ -19,8 +19,6 @@ export class PagedocentePage implements OnInit {
       this.dato=this.router.getCurrentNavigation().extras.state.dato;
       console.log(this.dato)
     }
-
-    
   });
   }
   public create() {
