@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
+import { FormControl , FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -11,6 +13,13 @@ import { ToastController } from '@ionic/angular';
 export class HomePage implements OnInit {
   dato:String;
   img:String;
+
+  usuario = new FormGroup({
+    nombre: new FormControl('', [Validators.required, Validators.minLength(4)])
+  });
+
+  nombre = new FormControl('');
+
   constructor(public toastController: ToastController,private router:Router) {}
   ngOnInit(){
     this.img ='./assets/img/1.png';
@@ -46,7 +55,9 @@ export class HomePage implements OnInit {
     });
     toast.present();
   }
-  
+  guardarDatos(){
+    console.log(this.usuario.value);
+  }
   
 
 }
