@@ -36,7 +36,7 @@ export class HomePage implements OnInit {
     };
     //Utilizar API enrutador para llamar a la siguiente página
 
-    this.router.navigate(['/reestablecer'],navigationExtra);
+    this.router.navigate(['/reestablecer-docente'],navigationExtra);
 
   }
   async presentToast(msg:string) {

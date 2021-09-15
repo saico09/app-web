@@ -14,6 +14,7 @@ export class ReestablecerDocentePage implements OnInit {
   constructor(public toastController: ToastController,private router:Router) {}
 
   ngOnInit() {
+    this.img ='./assets/img/1.png';
   }
   ingresa(){
 
