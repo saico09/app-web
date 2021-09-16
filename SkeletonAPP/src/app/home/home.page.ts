@@ -39,6 +39,13 @@ export class HomePage implements OnInit {
     this.router.navigate(['/pagedocente'],navigationExtra);
 
   }
+  ingresa3(){
+
+    //Utilizar API enrutador para llamar a la siguiente página
+
+    this.router.navigate(['/inicio']);
+
+  }
   ingresa4(){
 
     let navigationExtra :NavigationExtras={

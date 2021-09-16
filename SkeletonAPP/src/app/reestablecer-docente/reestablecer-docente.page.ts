@@ -32,7 +32,13 @@ export class ReestablecerDocentePage implements OnInit {
     this.router.navigate(['/home'],navigationExtra);
 
   }
+  ingresa3(){
 
+    //Utilizar API enrutador para llamar a la siguiente página
+
+    this.router.navigate(['/home']);
+
+  }
   mensaje(){
     //Llamar a Toast
     this.presentToast("Correo de recuperación enviado a "+this.dato)

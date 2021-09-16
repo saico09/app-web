@@ -37,6 +37,8 @@
             <ion-input formControlName="contrasena"  type="password"></ion-input>
           </ion-item>
           <ion-button [disabled]="!usuario.valid" type="submit" id="play" expand="block" (click)="bienvenida()" (ngSubmit)="guardarDatos">Ingresar</ion-button>  
+          <ion-button id="play" expand="block"(click)="ingresa3()">Volver</ion-button>
+
         </form>
       </ion-card-content>
         
@@ -44,15 +46,17 @@
     </ion-card>
   </div>
 
-  <ion-footer> 
-    <ion-toolbar > 
-      <section class="full-width">
-        <div class="ion-text-center"><p>¿Olvidaste tu contraseña?</p></div>
-        <div class="ion-text-center" style="background-color: white;"><button (click)="ingresa4()" style="background-color: white;"><h3 style="color: #f9b901;"><u>Reestablecer</u></h3></button></div>
-
-      </section>
-    </ion-toolbar> 
-  </ion-footer>
+  
 
 
 </ion-content>
+
+<ion-footer> 
+  <ion-toolbar > 
+    <section class="full-width">
+      <div class="ion-text-center"><p>¿Olvidaste tu contraseña?</p></div>
+      <div class="ion-text-center" style="background-color: white;"><button (click)="ingresa4()" style="background-color: white;"><h3 style="color: #f9b901;"><u>Reestablecer</u></h3></button></div>
+
+    </section>
+  </ion-toolbar> 
+</ion-footer>

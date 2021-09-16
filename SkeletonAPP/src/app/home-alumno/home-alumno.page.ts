@@ -49,6 +49,13 @@ export class HomeAlumnoPage implements OnInit {
     this.router.navigate(['/reestablecer'],navigationExtra);
 
   }
+  ingresa3(){
+
+    //Utilizar API enrutador para llamar a la siguiente página
+
+    this.router.navigate(['/inicio']);
+
+  }
   async presentToast(msg:string) {
     const toast = await this.toastController.create({
       message: msg,

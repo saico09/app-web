@@ -30,6 +30,7 @@
           </ion-item>
           <br>
           <ion-button [disabled]="!grupo.valid" type="submit" id="play" expand="block" (click)="mensaje()" (ngSubmit)="guardarDatos">Ingresar</ion-button>  
+          <ion-button id="play" expand="block"(click)="ingresa3()">Volver</ion-button>
 
       </form>
       </ion-card-content>
@@ -44,6 +45,6 @@
 </ion-content>
 <ion-footer> 
   <ion-toolbar > 
-    
+    <p class="ion-padding">{{ nombre.value }}</p>
   </ion-toolbar> 
 </ion-footer>
