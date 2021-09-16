@@ -29,7 +29,7 @@
             <ion-input formControlName="nombre" [formControl]="nombre" type="text" [(ngModel)]="dato" minlength="2"></ion-input>
           </ion-item>
           <br>
-          <ion-button [disabled]="!grupo.valid" type="submit" id="play" expand="block" (click)="bienvenida()" (ngSubmit)="guardarDatos">Ingresar</ion-button>  
+          <ion-button [disabled]="!grupo.valid" type="submit" id="play" expand="block" (click)="mensaje()" (ngSubmit)="guardarDatos">Ingresar</ion-button>  
 
       </form>
       </ion-card-content>

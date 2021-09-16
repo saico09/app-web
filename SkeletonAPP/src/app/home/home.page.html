@@ -36,7 +36,6 @@
             <ion-label position="floating">Contraseña:</ion-label>
             <ion-input formControlName="contrasena"  type="password"></ion-input>
           </ion-item>
-          <br>
           <ion-button [disabled]="!usuario.valid" type="submit" id="play" expand="block" (click)="bienvenida()" (ngSubmit)="guardarDatos">Ingresar</ion-button>  
         </form>
       </ion-card-content>
