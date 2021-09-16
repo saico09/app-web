@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { Animation, AnimationController } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio',
@@ -7,8 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
+  anim:Animation;
+  @ViewChild('square', {static: false} ) square:ElementRef;
+  isPlaying=false;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private animationCtrl: AnimationController) { }
+
+  
 
   ngOnInit() {
   }
