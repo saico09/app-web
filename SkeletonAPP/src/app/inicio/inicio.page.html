@@ -5,6 +5,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-button id="play" expand="block" (click)="ingresa2()">Docente</ion-button>
-  <ion-button id="play" expand="block" (click)="ingresa()">Alumno</ion-button>
+  <ion-button id="play" expand="block" (click)="toggleAnimation()" routerLink="/home">Docente</ion-button>
+
+  <ion-button id="play" expand="block" (click)="toggleAnimation()" routerLink="/home-alumno">Alumno</ion-button>
+
+  
+
+
+
 </ion-content>
