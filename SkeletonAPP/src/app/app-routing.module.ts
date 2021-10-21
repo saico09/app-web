@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -14,27 +14,32 @@ const routes: Routes = [
  
   {
     path: 'pagedocente',
-    loadChildren: () => import('./pagedocente/pagedocente.module').then( m => m.PagedocentePageModule)
+    loadChildren: () => import('./pages/pagedocente/pagedocente.module').then( m => m.PagedocentePageModule)
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
     path: 'pagealumno',
-    loadChildren: () => import('./pagealumno/pagealumno.module').then( m => m.PagealumnoPageModule)
+    loadChildren: () => import('./pages/pagealumno/pagealumno.module').then( m => m.PagealumnoPageModule)
   },
   {
     path: 'home-alumno',
-    loadChildren: () => import('./home-alumno/home-alumno.module').then( m => m.HomeAlumnoPageModule)
+    loadChildren: () => import('./pages/home-alumno/home-alumno.module').then( m => m.HomeAlumnoPageModule)
   },
  
   {
     path: 'reestablecer',
-    loadChildren: () => import('./reestablecer/reestablecer.module').then( m => m.ReestablecerPageModule)
-  },  {
+    loadChildren: () => import('./pages/reestablecer/reestablecer.module').then( m => m.ReestablecerPageModule)
+  },
+  {
     path: 'reestablecer-docente',
-    loadChildren: () => import('./reestablecer-docente/reestablecer-docente.module').then( m => m.ReestablecerDocentePageModule)
+    loadChildren: () => import('./pages/reestablecer-docente/reestablecer-docente.module').then( m => m.ReestablecerDocentePageModule)
+  },
+  {
+    path: 'not-found',
+    loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
 
 
