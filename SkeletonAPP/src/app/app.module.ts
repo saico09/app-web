@@ -14,7 +14,7 @@ import { enterAnimation } from 'src/animations/nav-animations';
   entryComponents: [],
   imports: [BrowserModule,NgxQRCodeModule, IonicModule.forRoot({
     navAnimation: enterAnimation
-  }), AppRoutingModule, BrowserAnimationsModule,],
+  }), AppRoutingModule, BrowserAnimationsModule, IonicModule.forRoot(),],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
