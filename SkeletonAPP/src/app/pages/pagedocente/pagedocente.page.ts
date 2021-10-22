@@ -11,7 +11,7 @@ export class PagedocentePage implements OnInit {
   qrdata: any;
   createCode: any;  
 
-  dato:any;//tipo que permite cualquier valor
+  dato:string;//tipo que permite cualquier valor
   constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController) { 
   //llamar a la ruta activa y obtener sus parámetros(si es que tiene)
   this.activeRoute.queryParams.subscribe(params=>{

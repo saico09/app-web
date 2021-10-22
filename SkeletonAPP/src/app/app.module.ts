@@ -9,12 +9,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { enterAnimation } from './animations/nav-animations';
 
+import { IonicStorageModule } from '@ionic/storage-angular';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
+  
   imports: [BrowserModule,NgxQRCodeModule, IonicModule.forRoot({
-    navAnimation:enterAnimation
-  }), AppRoutingModule, BrowserAnimationsModule, IonicModule.forRoot(),],
+    navAnimation:enterAnimation,
+    
+  }), AppRoutingModule, BrowserAnimationsModule, IonicModule.forRoot(),
+  IonicStorageModule.forRoot()],
+
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

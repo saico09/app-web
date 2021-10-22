@@ -8,7 +8,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./componente-dos.component.scss'],
 })
 export class ComponenteDosComponent implements OnInit {
-  dato: any;
+  dato: string;
   constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController) { 
     //llamar a la ruta activa y obtener sus parámetros(si es que tiene)
     this.activeRoute.queryParams.subscribe(params=>{

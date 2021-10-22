@@ -23,7 +23,7 @@
         </ion-label>
       </ion-card-title>
       <ion-card-content>
-        <form [formGroup]="usuario" (ngSubmit)="ingresa()">
+        <form [formGroup]="usuario" (ngSubmit)="bienvenida()">
           <ion-item>
             <ion-label position="floating">Nombre de usuario:</ion-label>
             <ion-input formControlName="nombre" [formControl]="nombre" type="text" [(ngModel)]="dato" minlength="2"></ion-input>
@@ -34,9 +34,9 @@
           
           <ion-item>
             <ion-label position="floating">Contraseña:</ion-label>
-            <ion-input formControlName="contrasena"  type="password"></ion-input>
+            <ion-input formControlName="contrasena"  type="password" [(ngModel)]="contrasena"></ion-input>
           </ion-item>
-          <ion-button [disabled]="!usuario.valid" type="submit" id="play" expand="block" (click)="bienvenida()" (ngSubmit)="guardarDatos">Ingresar</ion-button>  
+          <ion-button [disabled]="!usuario.valid" type="submit" id="play" expand="block" (click)="guardar()">Ingresar</ion-button>  
           <ion-button id="play" expand="block"(click)="ingresa3()">Volver</ion-button>
 
         </form>

@@ -12,6 +12,7 @@ import { FormControl , FormGroup, Validators } from '@angular/forms';
 })
 export class HomePage implements OnInit {
   dato:String;
+  contrasena:String;
   img:String;
 
   usuario = new FormGroup({

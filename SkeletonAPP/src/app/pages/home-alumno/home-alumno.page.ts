@@ -1,8 +1,10 @@
+import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
 import { FormControl , FormGroup, Validators } from '@angular/forms';
+import { BdLocalService } from 'src/app/services/bd-local.service';
 
 
 @Component({
@@ -11,8 +13,10 @@ import { FormControl , FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./home-alumno.page.scss'],
 })
 export class HomeAlumnoPage implements OnInit {
-  img:String;
-  dato:String;
+  img:string;
+  dato:string;
+  contrasena:string;
+
 
   usuario = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(4)]),
@@ -21,7 +25,19 @@ export class HomeAlumnoPage implements OnInit {
 
   nombre = new FormControl('');
 
-  constructor(public toastController: ToastController,private router:Router) {}
+  constructor(public toastController: ToastController,private router:Router,private bdlocal: BdLocalService) {}
+
+  guardar(){
+    console.log(this.usuario.value);
+    this.bdlocal.guardarContactos(this.dato,this.contrasena);
+    let navigationExtra :NavigationExtras={
+      state:{dato: this.dato}
+    };
+    //Utilizar API enrutador para llamar a la siguiente página
+
+    this.router.navigate(['/pagealumno/Perfil'],navigationExtra);
+  }
+
   ngOnInit() {
     this.img ='./assets/img/1.png';
   }
@@ -65,5 +81,7 @@ export class HomeAlumnoPage implements OnInit {
   }
   guardarDatos(){
     console.log(this.usuario.value);
+    this.bdlocal.guardarContactos(this.dato,this.contrasena);
+    
   }
 }

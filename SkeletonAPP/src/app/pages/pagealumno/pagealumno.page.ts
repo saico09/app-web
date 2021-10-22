@@ -7,7 +7,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./pagealumno.page.scss'],
 })
 export class PagealumnoPage implements OnInit {
-  dato: any;  
+  dato: string;  
 
   constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController) {
       this.router.navigate(['pagealumno/QRLector']) 
