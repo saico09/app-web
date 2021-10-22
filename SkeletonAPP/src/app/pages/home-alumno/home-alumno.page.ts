@@ -36,7 +36,7 @@ export class HomeAlumnoPage implements OnInit {
     };
     //Utilizar API enrutador para llamar a la siguiente página
 
-    this.router.navigate(['/pagealumno'],navigationExtra);
+    this.router.navigate(['/pagealumno/Perfil'],navigationExtra);
 
   }
   ingresa4(){
