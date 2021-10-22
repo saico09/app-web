@@ -10,7 +10,7 @@ export class PagealumnoPage implements OnInit {
   dato: string;  
 
   constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController) {
-      this.router.navigate(['pagealumno/QRLector']) 
+      this.router.navigate(['pagealumno/Perfil']) 
       //llamar a la ruta activa y obtener sus parámetros(si es que tiene)
       this.activeRoute.queryParams.subscribe(params=>{
         if(this.router.getCurrentNavigation().extras.state){

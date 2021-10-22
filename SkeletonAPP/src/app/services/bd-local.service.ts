@@ -31,15 +31,20 @@ export class BdLocalService {
   }
 
   guardarContactos(dato:string,contrasena:string){
-    const existe=this.agenda.find(c=>c.strContrasena==contrasena)
+    const existe=this.contactoExiste(contrasena);
     if(!existe){
       this.agenda.unshift({strNombre:dato, strContrasena: contrasena})
       this._storage.set('agenda',this.agenda)
-      this.presentToast('ERROR: Usuario no existe')
+      this.presentToast('Registrado')
     }
     else{
-      this.presentToast("Contacto ya existe")
+      this.presentToast("ERROR: no se pudo registrar")
     }
+  }
+
+  contactoExiste(contrasena:string){
+    const existe=this.agenda.find(c=>c.strContrasena==contrasena)
+    return existe;
   }
 
   async presentToast(mensaje:string) {

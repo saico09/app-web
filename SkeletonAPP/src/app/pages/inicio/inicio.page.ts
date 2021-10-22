@@ -33,4 +33,7 @@ export class InicioPage implements OnInit {
     this.router.navigate(['/home-alumno']);
 
   }
+  registrar(){
+    this.router.navigate(['/registrar']);
+  }
 }

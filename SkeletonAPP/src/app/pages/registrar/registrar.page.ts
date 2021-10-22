@@ -8,13 +8,13 @@ import { BdLocalService } from 'src/app/services/bd-local.service';
 
 
 @Component({
-  selector: 'app-home-alumno',
-  templateUrl: './home-alumno.page.html',
-  styleUrls: ['./home-alumno.page.scss'],
+  selector: 'app-Registrar',
+  templateUrl: './Registrar.page.html',
+  styleUrls: ['./Registrar.page.scss'],
 })
-export class HomeAlumnoPage implements OnInit {
+export class RegistrarPage implements OnInit {
   img:string;
-  dato1:string;
+  dato:string;
   contrasena:string;
 
 
@@ -29,17 +29,15 @@ export class HomeAlumnoPage implements OnInit {
 
   guardar(){
     
-    if(this.bdlocal.contactoExiste(this.dato1)){
-      this.presentToast2('Iniciando sesión')
-      let navigationExtra :NavigationExtras={
-        state:{dato: this.dato1}
-      };
-      this.router.navigate(['/pagealumno/Perfil'],navigationExtra)
+    if(this.bdlocal.contactoExiste(this.dato)){
+      this.presentToast2('ERROR: El ususuario ya existe')
     }
     else{
-      this.presentToast2("ERROR: Usuario no existe")
+      this.presentToast2("Registro exitoso")
+      this.bdlocal.guardarContactos(this.dato,this.dato)
+      this.ingresa3()
     }
-    //this.bdlocal.guardarContactos(this.dato,this.contrasena);
+    
   }
   
   registrar(){
@@ -52,14 +50,14 @@ export class HomeAlumnoPage implements OnInit {
   bienvenida(){
     //Llamar a Toast
     if(this.bdlocal.contactoExiste(this.contrasena)){
-      this.presentToast("Bienvenido "+this.dato1)
+      this.presentToast("Bienvenido "+this.dato)
     }
     
   }
   ingresa(){
 
     let navigationExtra :NavigationExtras={
-      state:{dato: this.dato1}
+      state:{dato: this.dato}
     };
     //Utilizar API enrutador para llamar a la siguiente página
 
@@ -69,7 +67,7 @@ export class HomeAlumnoPage implements OnInit {
   ingresa4(){
 
     let navigationExtra :NavigationExtras={
-      state:{dato: this.dato1}
+      state:{dato: this.dato}
     };
     //Utilizar API enrutador para llamar a la siguiente página
 
@@ -92,7 +90,7 @@ export class HomeAlumnoPage implements OnInit {
   }
   guardarDatos(){
     console.log(this.usuario.value);
-    this.bdlocal.guardarContactos(this.dato1,this.contrasena);
+    this.bdlocal.guardarContactos(this.dato,this.contrasena);
     
   }
 
