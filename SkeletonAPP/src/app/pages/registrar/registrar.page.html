@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+  <ion-title class="ion-padding-top ion-text-center">
+    <ion-label>
+      <ion-img style="width: 100%; height: 80px;" [src]="img"></ion-img>
+    </ion-label>
+  </ion-title>
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <div class ="ion-padding-vertical" >
+    <ion-card class="ion-text-center">
+      <ion-card-title class="ion-text-center">
+        <ion-label>
+          <h1>Ingrese credenciales</h1>
+        </ion-label>
+      </ion-card-title>
+      <ion-card-content>
+        <form [formGroup]="usuario">
+          <ion-item>
+            <ion-label position="floating">Nombre de usuario:</ion-label>
+            <ion-input formControlName="nombre" [formControl]="nombre" type="text" [(ngModel)]="dato" minlength="2"></ion-input>
+          </ion-item> 
+
+          <ion-label color="danger" *ngIf="usuario.controls.nombre.errors?.required && (usuario.touched || usuario.dirty)">* El nombre es obligatorio </ion-label>
+          <ion-label color="danger" *ngIf="usuario.controls.nombre.errors?.minlength && (usuario.touched || usuario.dirty)">* El nombre tiene que tener al menos 4 caracteres.</ion-label> 
+          
+          <ion-item>
+            <ion-label position="floating">Contraseña:</ion-label>
+            <ion-input formControlName="contrasena"  type="password" [(ngModel)]="contrasena"></ion-input>
+          </ion-item>
+          <ion-button [disabled]="!usuario.valid" type="submit" id="play" expand="block" (click)="guardar()">Registrar</ion-button>  
+          <ion-button id="play" expand="block"(click)="ingresa3()">Volver</ion-button>
+
+          
+        </form>
+      </ion-card-content>
+        
+  
+    </ion-card>
+  </div>
+
+  
+
+
+</ion-content>
