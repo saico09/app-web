@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { APIClientService } from 'src/app/servicesapi/apiclient.service';
 
 import { Animation, AnimationController } from '@ionic/angular';
 
@@ -12,9 +13,24 @@ export class InicioPage implements OnInit {
   anim:Animation;
   @ViewChild('square', {static: false} ) square:ElementRef;
   isPlaying=false;
+  user:any;
+  users:any;
+  constructor(private router:Router,private animationCtrl: AnimationController,private api: APIClientService) { }
+  
+  ionViewWillEnter(){
+    this.getUsers()
+  }
+  
+  getUsers(){
 
-  constructor(private router:Router,private animationCtrl: AnimationController) { }
+    this.api.getUsers().subscribe((data)=>{
 
+      this.users=data;
+
+    })
+
+
+  }
   
 
   ngOnInit() {
