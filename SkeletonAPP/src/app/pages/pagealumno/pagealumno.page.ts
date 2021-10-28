@@ -38,9 +38,9 @@ export class PagealumnoPage implements OnInit {
 
   }
 
-  segmentChanged($event){
-    console.log($event)
-    let direccion=$event.detail.value
+  segmentChanged(event){
+    console.log(event)
+    let direccion=event.detail.value
     this.router.navigate(['pagealumno/'+direccion])
   }
 }
