@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-pagealumno',
   templateUrl: './pagealumno.page.html',
   styleUrls: ['./pagealumno.page.scss'],
 })
 export class PagealumnoPage implements OnInit {
-  dato: string;  
+  dato: string;
+  code:any;  
 
   constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController) {
 
@@ -21,7 +23,13 @@ export class PagealumnoPage implements OnInit {
     }
 
   ngOnInit() {
+
+
   }
+
+
+
+
   ingresa3(){
 
     //Utilizar API enrutador para llamar a la siguiente página
