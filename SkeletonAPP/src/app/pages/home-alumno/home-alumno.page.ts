@@ -43,7 +43,7 @@ export class HomeAlumnoPage implements OnInit {
         state:{dato: this.dato1}
       };
       
-      console.log(this.dato1);
+      //console.log(this.dato1);
       Auth2Guard;
       this.router.navigate(['/pagealumno/Perfil'],navigationExtra)
       //this.navCtrl.navigateRoot(['/pagealumno/Perfil'],navigationExtra)

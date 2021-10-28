@@ -17,7 +17,7 @@ export class PagealumnoPage implements OnInit {
       this.activeRoute.queryParams.subscribe(params=>{
         if(this.router.getCurrentNavigation().extras.state){
           this.dato=this.router.getCurrentNavigation().extras.state.dato;
-          console.log(this.dato)
+          //console.log(this.dato)
         }
       });
     }
