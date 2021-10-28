@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { enterAnimation } from './animations/nav-animations';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import { IonicStorageModule } from '@ionic/storage-angular';
 
@@ -21,7 +22,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
   }), AppRoutingModule, BrowserAnimationsModule, IonicModule.forRoot(),
   IonicStorageModule.forRoot()],
 
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },BarcodeScanner],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
