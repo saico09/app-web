@@ -37,6 +37,7 @@
     "@ionic/react-router": "^5.8.4",
     "@ionic/storage-angular": "^3.0.6",
     "@techiediaries/ngx-qrcode": "^9.1.0",
+    "cordova": "^10.0.0",
     "cordova-ios": "6.2.0",
     "jetifier": "^2.0.0",
     "natives": "^1.1.6",
