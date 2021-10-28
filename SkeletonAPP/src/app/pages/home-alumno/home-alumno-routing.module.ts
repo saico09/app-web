@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { Auth2Guard } from 'src/app/guards/auth2.guard';
 
 import { HomeAlumnoPage } from './home-alumno.page';
 

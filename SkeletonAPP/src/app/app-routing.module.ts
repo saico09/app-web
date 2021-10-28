@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { Auth2Guard } from './guards/auth2.guard';
 
 const routes: Routes = [
   {
@@ -23,6 +25,7 @@ const routes: Routes = [
   {
     path: 'pagealumno',
     loadChildren: () => import('./pages/pagealumno/pagealumno.module').then( m => m.PagealumnoPageModule)
+    ,canActivate:[AuthGuard]
   },
   {
     path: 'home-alumno',

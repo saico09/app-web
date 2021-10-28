@@ -1,10 +1,14 @@
 import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 
 import { FormControl , FormGroup, Validators } from '@angular/forms';
 import { BdLocalService } from 'src/app/services/bd-local.service';
+import { AuthGuard } from 'src/app/guards/auth.guard';
+import { Auth2Guard } from 'src/app/guards/auth2.guard';
+
+
 
 
 @Component({
@@ -16,7 +20,7 @@ export class HomeAlumnoPage implements OnInit {
   img:string;
   dato1:string;
   contrasena:string;
-
+  
 
   usuario = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(4)]),
@@ -24,24 +28,35 @@ export class HomeAlumnoPage implements OnInit {
   });
 
   nombre = new FormControl('');
+  public validador:any;
 
   constructor(public toastController: ToastController,private router:Router,private bdlocal: BdLocalService) {}
+    public navCtrl: NavController;
 
   guardar(){
+    this.validador=this.bdlocal.contactoExiste(this.dato1);
     
     if(this.bdlocal.contactoExiste(this.dato1)){
       this.presentToast2('Iniciando sesión')
+
       let navigationExtra :NavigationExtras={
         state:{dato: this.dato1}
       };
+      
       console.log(this.dato1);
+      Auth2Guard;
       this.router.navigate(['/pagealumno/Perfil'],navigationExtra)
+      //this.navCtrl.navigateRoot(['/pagealumno/Perfil'],navigationExtra)
+      return true;
     }
     else{
       this.presentToast2("ERROR: Usuario no existe")
+      return false;
     }
     //this.bdlocal.guardarContactos(this.dato,this.contrasena);
   }
+
+
   
   registrar(){
     this.router.navigate(['/registrar']);
