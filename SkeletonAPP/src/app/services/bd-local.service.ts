@@ -31,7 +31,7 @@ export class BdLocalService {
   }
 
   guardarContactos(dato:string,contrasena:string,user:string){
-    const existe=this.contactoExiste(contrasena);
+    const existe=this.contactoExiste(dato);
     if(!existe){
       this.agenda.unshift({strNombre:dato, strContrasena: contrasena, strUser: user})
       this._storage.set('agenda',this.agenda)
@@ -42,8 +42,8 @@ export class BdLocalService {
     }
   }
 
-  contactoExiste(contrasena:string){
-    const existe=this.agenda.find(c=>c.strContrasena==contrasena)
+  contactoExiste(dato:string){
+    const existe=this.agenda.find(c=>c.strNombre==dato)
     return existe;
   }
 

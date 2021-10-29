@@ -37,7 +37,7 @@ export class HomeAlumnoPage implements OnInit {
   guardar(){
     this.validador=this.bdlocal.contactoExiste(this.dato1);
     
-    if(this.bdlocal.contactoExiste(this.contrasena)){
+    if(this.bdlocal.contactoExiste(this.dato1)){
       this.presentToast2('Iniciando sesión')
 
       let navigationExtra :NavigationExtras={
@@ -68,7 +68,7 @@ export class HomeAlumnoPage implements OnInit {
   }
   bienvenida(){
     //Llamar a Toast
-    if(this.bdlocal.contactoExiste(this.contrasena)){
+    if(this.bdlocal.contactoExiste(this.dato1)){
       this.presentToast("Bienvenido "+this.dato1)
     }
     
