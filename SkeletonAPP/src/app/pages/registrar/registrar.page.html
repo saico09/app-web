@@ -36,6 +36,15 @@
             <ion-label position="floating">Contraseña:</ion-label>
             <ion-input formControlName="contrasena"  type="password" [(ngModel)]="contrasena"></ion-input>
           </ion-item>
+          
+          <ion-item style="color: red;">
+            <ion-select placeholder="Seleccione usuario" formControlName="user" [(ngModel)]="user" >
+                <ion-select-option  *ngFor="let usu of users" [value]="usu" >{{usu.nombre}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          
+
+
           <ion-button [disabled]="!usuario.valid" type="submit" id="play" expand="block" (click)="guardar()">Registrar</ion-button>  
           <ion-button id="play" expand="block"(click)="ingresa3()">Volver</ion-button>
 
@@ -44,6 +53,11 @@
       </ion-card-content>
         
   
+    </ion-card>
+
+
+    <ion-card>
+      
     </ion-card>
   </div>
 

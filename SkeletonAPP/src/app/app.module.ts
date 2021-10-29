@@ -12,11 +12,13 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import { IonicStorageModule } from '@ionic/storage-angular';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   
-  imports: [BrowserModule,NgxQRCodeModule, IonicModule.forRoot({
+  imports: [HttpClientModule,BrowserModule,NgxQRCodeModule, IonicModule.forRoot({
     navAnimation:enterAnimation,
     
   }), AppRoutingModule, BrowserAnimationsModule, IonicModule.forRoot(),

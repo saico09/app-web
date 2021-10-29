@@ -20,6 +20,7 @@ export class HomeAlumnoPage implements OnInit {
   img:string;
   dato1:string;
   contrasena:string;
+  user:any;
   
 
   usuario = new FormGroup({
@@ -36,7 +37,7 @@ export class HomeAlumnoPage implements OnInit {
   guardar(){
     this.validador=this.bdlocal.contactoExiste(this.dato1);
     
-    if(this.bdlocal.contactoExiste(this.dato1)){
+    if(this.bdlocal.contactoExiste(this.contrasena)){
       this.presentToast2('Iniciando sesión')
 
       let navigationExtra :NavigationExtras={
@@ -108,7 +109,7 @@ export class HomeAlumnoPage implements OnInit {
   }
   guardarDatos(){
     console.log(this.usuario.value);
-    this.bdlocal.guardarContactos(this.dato1,this.contrasena);
+    this.bdlocal.guardarContactos(this.dato1,this.contrasena,this.user);
     
   }
 

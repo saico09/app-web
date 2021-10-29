@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { BdLocalService } from 'src/app/services/bd-local.service';
 
 @Component({
   selector: 'app-componente-dos',
@@ -9,7 +10,9 @@ import { NavController } from '@ionic/angular';
 })
 export class ComponenteDosComponent implements OnInit {
   dato: string;
-  constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController) { 
+  reg:any;
+  constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController,
+    private bdlocal: BdLocalService) { 
     //llamar a la ruta activa y obtener sus parámetros(si es que tiene)
     this.activeRoute.queryParams.subscribe(params=>{
       if(this.router.getCurrentNavigation().extras.state){
@@ -20,7 +23,9 @@ export class ComponenteDosComponent implements OnInit {
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.reg=this.bdlocal.buscar(this.dato);
+  }
 
 }
 

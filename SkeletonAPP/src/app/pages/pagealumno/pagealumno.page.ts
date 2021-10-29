@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
+import { BdLocalService } from 'src/app/services/bd-local.service';
+
 @Component({
   selector: 'app-pagealumno',
   templateUrl: './pagealumno.page.html',
@@ -11,7 +13,10 @@ export class PagealumnoPage implements OnInit {
   dato: string;
   code:any;  
 
-  constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController) {
+  reg:any;
+
+  constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController,
+    private bdlocal: BdLocalService) {
 
       //llamar a la ruta activa y obtener sus parámetros(si es que tiene)
       this.activeRoute.queryParams.subscribe(params=>{
@@ -23,8 +28,8 @@ export class PagealumnoPage implements OnInit {
     }
 
   ngOnInit() {
-
-
+    
+    this.reg=this.bdlocal.buscar(this.dato);
   }
 
 

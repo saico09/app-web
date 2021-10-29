@@ -6,6 +6,8 @@ import { ToastController } from '@ionic/angular';
 import { FormControl , FormGroup, Validators } from '@angular/forms';
 import { BdLocalService } from 'src/app/services/bd-local.service';
 
+import { APIClientService } from 'src/app/services/apiclient.service';
+
 
 @Component({
   selector: 'app-Registrar',
@@ -17,24 +19,39 @@ export class RegistrarPage implements OnInit {
   dato:string;
   contrasena:string;
 
+  user:any;
+  users:any;
 
   usuario = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    contrasena: new FormControl('', [Validators.required, Validators.minLength(4)])
+    contrasena: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    user: new FormControl('')
   });
 
   nombre = new FormControl('');
 
-  constructor(public toastController: ToastController,private router:Router,private bdlocal: BdLocalService) {}
+  constructor(public toastController: ToastController,private router:Router,private bdlocal: BdLocalService, 
+    private api:APIClientService) {}
+
+  ionViewWillEnter(){
+    this.getUsuarios()
+  }
+
+  getUsuarios(){
+    this.api.getUsuarios().subscribe((data)=>{
+      this.users=data;
+    });
+  }
+
 
   guardar(){
     
-    if(this.bdlocal.contactoExiste(this.dato)){
+    if(this.bdlocal.contactoExiste(this.contrasena)){
       this.presentToast2('ERROR: El ususuario ya existe')
     }
     else{
       this.presentToast2("Registro exitoso")
-      this.bdlocal.guardarContactos(this.dato,this.dato)
+      this.bdlocal.guardarContactos(this.dato,this.contrasena,this.user)
       this.ingresa3()
     }
     
@@ -90,7 +107,7 @@ export class RegistrarPage implements OnInit {
   }
   guardarDatos(){
     console.log(this.usuario.value);
-    this.bdlocal.guardarContactos(this.dato,this.contrasena);
+    this.bdlocal.guardarContactos(this.dato,this.contrasena,this.user);
     
   }
 

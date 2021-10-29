@@ -30,10 +30,10 @@ export class BdLocalService {
     this._storage = storage;
   }
 
-  guardarContactos(dato:string,contrasena:string){
+  guardarContactos(dato:string,contrasena:string,user:string){
     const existe=this.contactoExiste(contrasena);
     if(!existe){
-      this.agenda.unshift({strNombre:dato, strContrasena: contrasena})
+      this.agenda.unshift({strNombre:dato, strContrasena: contrasena, strUser: user})
       this._storage.set('agenda',this.agenda)
       this.presentToast('Registrado')
     }
@@ -45,6 +45,17 @@ export class BdLocalService {
   contactoExiste(contrasena:string){
     const existe=this.agenda.find(c=>c.strContrasena==contrasena)
     return existe;
+  }
+
+  buscar(dato:string){
+    
+    const existe=this.agenda.find(c=>c.strNombre==dato)
+    if(existe){
+      console.log(this.agenda.find(c=>c.strNombre==dato).strUser['nombre'])
+      const region=this.agenda.find(c=>c.strNombre==dato).strUser['nombre'];
+      return region
+    }
+    
   }
 
   async presentToast(mensaje:string) {
