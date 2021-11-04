@@ -45,7 +45,7 @@ export class HomeAlumnoPage implements OnInit {
       };
       
       //console.log(this.dato1);
-      Auth2Guard;
+      AuthGuard;
       this.router.navigate(['/pagealumno/Perfil'],navigationExtra)
       //this.navCtrl.navigateRoot(['/pagealumno/Perfil'],navigationExtra)
       return true;
