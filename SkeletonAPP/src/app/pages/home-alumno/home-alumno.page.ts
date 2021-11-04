@@ -10,17 +10,23 @@ import { Auth2Guard } from 'src/app/guards/auth2.guard';
 
 
 
-
 @Component({
   selector: 'app-home-alumno',
   templateUrl: './home-alumno.page.html',
   styleUrls: ['./home-alumno.page.scss'],
 })
+
+
 export class HomeAlumnoPage implements OnInit {
   img:string;
   dato1:string;
   contrasena:string;
   user:any;
+
+  reg:any;
+
+
+  token='asdasdasd';
   
 
   usuario = new FormGroup({
@@ -31,8 +37,12 @@ export class HomeAlumnoPage implements OnInit {
   nombre = new FormControl('');
   public validador:any;
 
+  
+
   constructor(public toastController: ToastController,private router:Router,private bdlocal: BdLocalService) {}
     public navCtrl: NavController;
+
+    
 
   guardar(){
     this.validador=this.bdlocal.contactoExiste(this.dato1);
@@ -42,11 +52,20 @@ export class HomeAlumnoPage implements OnInit {
 
       let navigationExtra :NavigationExtras={
         state:{dato: this.dato1}
+        
       };
-      
+
+      this.reg=this.bdlocal.buscar(this.dato1);
+
+      localStorage.setItem('ingresado','true');
+      localStorage.setItem('nombre',this.dato1);
+      localStorage.setItem('region',this.reg);
       //console.log(this.dato1);
       AuthGuard;
       this.router.navigate(['/pagealumno/Perfil'],navigationExtra)
+
+      
+      
       //this.navCtrl.navigateRoot(['/pagealumno/Perfil'],navigationExtra)
       return true;
     }

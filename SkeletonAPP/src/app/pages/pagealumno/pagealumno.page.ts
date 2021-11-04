@@ -29,7 +29,7 @@ export class PagealumnoPage implements OnInit {
 
   ngOnInit() {
     
-    this.reg=this.bdlocal.buscar(this.dato);
+    this.dato=localStorage.getItem('nombre')
   }
 
 
@@ -38,6 +38,7 @@ export class PagealumnoPage implements OnInit {
   ingresa3(){
 
     //Utilizar API enrutador para llamar a la siguiente página
+    localStorage.clear();
 
     this.router.navigate(['/inicio']);
 

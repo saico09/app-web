@@ -14,17 +14,18 @@ export class ComponenteDosComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController,
     private bdlocal: BdLocalService) { 
     //llamar a la ruta activa y obtener sus parámetros(si es que tiene)
-    this.activeRoute.queryParams.subscribe(params=>{
-      if(this.router.getCurrentNavigation().extras.state){
-        this.dato=this.router.getCurrentNavigation().extras.state.dato;
-        console.log('Ha ingresado '+this.dato)
-      }
-    });
+    //this.activeRoute.queryParams.subscribe(params=>{
+    //  if(this.router.getCurrentNavigation().extras.state){
+    //    this.dato=this.router.getCurrentNavigation().extras.state.dato;
+    //    console.log('Ha ingresado '+this.dato)
+    //  }
+    //});
 
   }
 
   ngOnInit() {
-    this.reg=this.bdlocal.buscar(this.dato);
+    this.dato=localStorage.getItem('nombre')
+    this.reg=localStorage.getItem('region')
   }
 
 }

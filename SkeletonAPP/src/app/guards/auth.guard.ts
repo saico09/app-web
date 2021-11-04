@@ -14,13 +14,12 @@ export class AuthGuard implements CanActivate {
   
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | 
     Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(this.router.getCurrentNavigation().extras.state){
-        this.dato=this.router.getCurrentNavigation().extras.state.dato;
-        console.log('permitido')
+      if(localStorage.getItem('ingresado')){
+        console.log('GUARD correcto')
         return  true;
       }
       else{
-        console.log('error')
+        console.log('GUARD error')
         this.router.navigate(['/not-found']);
         return false
       }
