@@ -1,10 +1,10 @@
 <p>
     <br>
-    <ion-label>
+    <ion-label (ionRefresh)="doRefresh($event)">
       Nombre de usuario: {{dato}}
     </ion-label>
     <br>
-    <ion-label>
+    <ion-label (ionRefresh)="doRefresh($event)">
       Region: {{reg}}
     </ion-label>
     <br>
