@@ -46,7 +46,7 @@ export class RegistrarPage implements OnInit {
 
   guardar(){
     
-    if(this.bdlocal.contactoExiste(this.dato,this.contrasena)){
+    if(this.bdlocal.contactoExiste(this.dato)){
       this.presentToast2('ERROR: El ususuario ya existe')
     }
     else{
@@ -66,7 +66,7 @@ export class RegistrarPage implements OnInit {
   }
   bienvenida(){
     //Llamar a Toast
-    if(this.bdlocal.contactoExiste(this.dato,this.contrasena)){
+    if(this.bdlocal.contactoExiste(this.dato)){
       this.presentToast("Bienvenido "+this.dato)
     }
     
