@@ -8,7 +8,12 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
   styleUrls: ['./componente-uno.component.scss'],
 })
 export class ComponenteUnoComponent implements OnInit {
-  code:any;  
+  code:any; 
+  public date: string = new Date().toLocaleDateString();
+  public time: string = new Date().toLocaleTimeString();
+
+
+
   constructor(private barcodeScanner: BarcodeScanner,) { }
 
   ngOnInit() {
