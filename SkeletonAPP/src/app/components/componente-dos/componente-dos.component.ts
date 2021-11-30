@@ -10,7 +10,18 @@ import { BdLocalService } from 'src/app/services/bd-local.service';
 })
 export class ComponenteDosComponent implements OnInit {
   dato: string;
+
+ 
+
+  //lista:any=this.bdlocal.cargarContactos();
+
+  
+
   reg:any;
+  public items: Array<any>;
+
+
+
   constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController,
     private bdlocal: BdLocalService) { 
     //llamar a la ruta activa y obtener sus parámetros(si es que tiene)
@@ -22,6 +33,7 @@ export class ComponenteDosComponent implements OnInit {
     //});
 
   }
+
 
   doRefresh(event) {
     console.log('Begin async operation');
@@ -35,6 +47,8 @@ export class ComponenteDosComponent implements OnInit {
   ngOnInit() {
     this.dato=localStorage.getItem('nombre')
     this.reg=localStorage.getItem('region')
+    
+    
   }
 
 }

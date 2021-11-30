@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { ToastController } from '@ionic/angular';
+import { BdLocalService } from 'src/app/services/bd-local.service';
+import { BdLocal2Service } from 'src/app/services/bd-local2.service';
 
 
 @Component({
@@ -8,28 +11,71 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
   styleUrls: ['./componente-uno.component.scss'],
 })
 export class ComponenteUnoComponent implements OnInit {
+  public nombre=localStorage.getItem('nombre')
+  
   code:any; 
-  public date: string = new Date().toLocaleDateString();
-  public time: string = new Date().toLocaleTimeString();
+  public ban: boolean=false;
+  public date: string ;
+  public time: string ;
 
+  public lista:any;
 
+  public id:string;
+  public seccion:string;
+  public asignatura:string;
+  public docente:string;
+  public correo:string;
 
-  constructor(private barcodeScanner: BarcodeScanner,) { }
+  constructor(public toastController: ToastController,private barcodeScanner: BarcodeScanner,private bdlocal: BdLocalService) { }
 
   ngOnInit() {
     
     
   }
 
+  getAsistencia(){
+    this.lista=this.bdlocal.cargarAsistencia();
+  }
+
   scan(){
+    this.date=new Date().toLocaleDateString();
+    this.time=new Date().toLocaleTimeString();
     this.barcodeScanner.scan().then(barcodeData => {
-      this.code=barcodeData.text;
+      this.code=JSON.parse(barcodeData.text); //convertir JSON a ARRAY
       console.log('Barcode data', barcodeData);
+
+      this.correo=this.code['correo']
+
+      this.guardar()
      }).catch(err => {
          console.log('Error', err);
      });
+     
+  }
 
+  guardar(){
+    
+    if(this.bdlocal.asistenciaExiste(this.date,this.nombre)){
+      this.presentToast2('ERROR: Ya existe asistencia')
+    }
+    else{
+      this.presentToast2("Asistencia registrada")
+      this.bdlocal.guardarAsistencia(this.nombre,this.date,this.time,this.code)
+      console.log(this.nombre+this.date+this.time+this.code)
+    }
+    
   }
   
+  async presentToast2(mensaje:string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      translucent:false,
+      color:'medium',
+      position: 'top',
+      duration: 2000
+    });
+    toast.present();
+
+  }
 
 }

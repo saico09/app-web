@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 import { BdLocalService } from 'src/app/services/bd-local.service';
+import { BdLocal2Service } from 'src/app/services/bd-local2.service';
 
 @Component({
   selector: 'app-pagealumno',
@@ -11,10 +12,42 @@ import { BdLocalService } from 'src/app/services/bd-local.service';
 })
 export class PagealumnoPage implements OnInit {
   dato: string;
+  nombre: string= localStorage.getItem('nombre')
   code:any;  
-
+  lista: Array<any> = [
+    {
+      titulo:"perro",
+      color:"#444"
+    },
+    {
+      titulo:"gato",
+      color:"#999"
+    }
+  ]
   reg:any;
+  res: any;
 
+  asignatura:Array<any>;
+
+  listaAlumnos: any;
+  listaAsistencia:any/*=[
+    {
+      strNom:"asda",
+      strFecha:"02/22/2021",
+      strHora:"22:02",
+      strClase:[
+        {
+          A:"a",
+          B:"b"
+        }
+      ]
+
+    }
+  ]*/;
+
+  //listaAsistencia: any=this.bdlocal.cargarContactos();
+
+  
   constructor(private activeRoute: ActivatedRoute, private router:Router,public navCtrl: NavController,
     private bdlocal: BdLocalService) {
 
@@ -30,6 +63,17 @@ export class PagealumnoPage implements OnInit {
   ngOnInit() {
     
     this.dato=localStorage.getItem('nombre')
+    //console.log(this.lista)
+
+    this.bdlocal.cargarContactos().then(res => console.log(res));
+    this.bdlocal.cargarContactos().then(res => this.listaAlumnos=res);
+
+    this.bdlocal.cargarAsistencia().then(res2 => console.log(res2));
+    this.bdlocal.cargarAsistencia().then(res2 => this.listaAsistencia=res2);
+    
+
+    console.log(this.listaAlumnos)
+    console.log(this.listaAsistencia)
   }
 
 

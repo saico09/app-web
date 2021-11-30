@@ -18,6 +18,7 @@ export class RegistrarPage implements OnInit {
   img:string;
   dato:string;
   contrasena:string;
+  
 
   user:any;
   users:any;
@@ -25,7 +26,7 @@ export class RegistrarPage implements OnInit {
   usuario = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(4)]),
     contrasena: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    user: new FormControl('')
+    user: new FormControl('', Validators.required)
   });
 
   nombre = new FormControl('');
