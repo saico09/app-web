@@ -11,8 +11,11 @@ import { enterAnimation } from './animations/nav-animations';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import { IonicStorageModule } from '@ionic/storage-angular';
-
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { HttpClientModule } from '@angular/common/http';
+
+import { SQLite } from '@ionic-native/sqlite/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
   }), AppRoutingModule, BrowserAnimationsModule, IonicModule.forRoot(),
   IonicStorageModule.forRoot()],
 
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },BarcodeScanner],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },BarcodeScanner,EmailComposer],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
