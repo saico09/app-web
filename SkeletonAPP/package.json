@@ -44,6 +44,7 @@
     "cordova-plugin-email-composer": "^0.10.0",
     "cordova-sqlite-storage": "^6.0.0",
     "jetifier": "^2.0.0",
+    "map-cache": "^0.2.2",
     "natives": "^1.1.6",
     "ngx-qrcode2": "^9.0.0",
     "phonegap-plugin-barcodescanner": "^8.1.0",

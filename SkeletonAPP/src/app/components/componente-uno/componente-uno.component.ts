@@ -37,7 +37,7 @@ export class ComponenteUnoComponent implements OnInit {
     let email = {
       to: this.correo,
       subject: 'ASISTENCIA',
-      body: this.nombre+' '+this.date+' '+this.time+' '+this.code
+      body: this.nombre+' '+this.date+' '+this.time+' '+this.code['asignatura']+' '+this.code['seccion']+' '+this.code['idAsignatura']+' '+this.code['docente']
     };
 
     // Send a text message using default options
@@ -56,7 +56,7 @@ export class ComponenteUnoComponent implements OnInit {
       console.log('Barcode data', barcodeData);
 
       this.correo=this.code['correo']
-
+      this.OpenEmailComposer();
       this.guardar()
      }).catch(err => {
          console.log('Error', err);
